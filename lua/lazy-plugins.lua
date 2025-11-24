@@ -35,10 +35,10 @@ require('lazy').setup({
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.nvim-lualine',
   require 'kickstart.plugins.fugitive',
-  -- require 'kickstart.plugins.vimwiki',
-  -- require 'kickstart.plugins.vim-peekaboo',
+  require 'kickstart.plugins.vimwiki',
+  require 'kickstart.plugins.vim-peekaboo',
   require 'kickstart.plugins.vim-ai',
-  -- require 'kickstart.plugins.vim-gnupg',
+  require 'kickstart.plugins.vim-gnupg',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

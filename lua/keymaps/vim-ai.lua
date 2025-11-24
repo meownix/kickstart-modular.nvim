@@ -19,6 +19,8 @@ vim.keymap.set('n', '<leader>c', ':AIChat<CR>')
 
 vim.keymap.set('n', '<leader>gc', ':GitCommitMessage<CR>')
 
+-- I have no idea how to make this one works. It seems to work with AIEdit, but
+-- not with the AIChat.
 --[[
 function LoadAIToken()
   local handle = io.popen 'vim-ai.token.zsh'
