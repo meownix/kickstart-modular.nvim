@@ -71,11 +71,11 @@ vim.o.scrolloff = 0
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- vim: ts=2 sts=2 sw=2 et
-
 -- Below configurations are taken from my ~/.vimrc
 vim.o.tabstop = 4
 vim.o.softtabstop = 0
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smarttab = true
+
+-- vim: ts=2 sts=2 sw=2 et
