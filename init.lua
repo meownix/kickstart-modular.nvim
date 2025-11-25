@@ -87,11 +87,35 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
+
+vim.cmd [[
+  set foldmethod=indent
+  set foldlevelstart=99
+]]
+
+-- TODO: Move some of below variable definition into their related plugins
+-- specific configuration files.
+-- vim.g.peekaboo_template_dir = teamWiki.template_path
+
+vim.g.grammarous_use_vim_spelllang = 1
+
+vim.g.GPGDefaultRecipients = { 'eddy_c@novellpharm.com' }
+
+vim.opt.directory = '/tmp/'
+
+vim.cmd 'source $HOME/.vim/plugin/matchit/plugin/matchit.vim'
+
+vim.b.match_ignorecase = 1
+vim.b.match_words = '\\<IF\\>:\\<ELSE\\>:\\<ENDI,\\<SCAN\\>:\\<ENDS,'
+  .. '\\<DO\\ CASE\\>:\\<CASE\\>:\\<OTHE:\\<ENDC,'
+  .. '\\<DO\\ WHIL:\\<ENDD,\\<FOR\\>:\\<ENDF'
+
+vim.api.nvim_set_option_value('concealcursor', 'nvic', {})
 
 -- [[ Setting options ]]
 require 'options'
