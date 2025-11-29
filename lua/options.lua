@@ -82,4 +82,53 @@ vim.o.smarttab = true
 
 vim.wo.wrap = false
 
+-- Enable filetype detection, plugins, and indentation
+vim.cmd 'filetype plugin indent on'
+
+-- First autocommand group (vimrcEx)
+local vimrcEx = vim.api.nvim_create_augroup('vimrcEx', { clear = true })
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = vimrcEx,
+  pattern = '*',
+  callback = function()
+    vim.bo.textwidth = 80
+  end,
+  desc = 'Set textwidth=80 for all files',
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = vimrcEx,
+  pattern = '*.tex',
+  callback = function()
+    vim.bo.textwidth = 0
+  end,
+  desc = 'Set textwidth=0 for .tex files',
+})
+
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = vimrcEx,
+  pattern = '*',
+  callback = function()
+    local line = vim.fn.line '\'"'
+    if line > 1 and line <= vim.fn.line '$' then
+      vim.cmd 'normal! g`"'
+    end
+  end,
+  desc = 'Restore cursor position',
+})
+
+-- Second autocommand group (vimrcNchat)
+local vimrcNchat = vim.api.nvim_create_augroup('vimrcNchat', { clear = true })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = vimrcNchat,
+  pattern = 'compose.txt',
+  callback = function()
+    vim.bo.textwidth = 0
+    vim.wo.wrap = true
+  end,
+  desc = 'set tw to 0 and wrap for nchat',
+})
+
 -- vim: ts=2 sts=2 sw=2 et

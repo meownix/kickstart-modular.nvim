@@ -94,6 +94,7 @@ vim.api.nvim_create_user_command('CodeReview', function(opts)
   vim.fn['vim_ai#AIChatRun'](range, config, prompt)
 end, { range = true })
 
+--[[
 function AIDictFn()
   local word = vim.fn.expand '<cword>'
   local prompt = "Provide the IPA and the meaning of the word '" .. word .. "' in all of its parts of speech." .. ' Do not give any text formatter.'
@@ -105,6 +106,7 @@ function AIDictFn()
   }
   vim.fn['vim_ai#AIChatRun'](0, config, prompt)
 end
+--]]
 
 vim.api.nvim_create_user_command('AICDict', function(opts)
   local range = opts.range
