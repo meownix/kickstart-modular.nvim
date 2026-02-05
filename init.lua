@@ -104,6 +104,8 @@ vim.cmd [[
 
 vim.g.grammarous_use_vim_spelllang = 1
 
+vim.g.GPGFilePattern = '*.{gpg,asc,pgp}{,.wiki,.tex}'
+vim.g.GPGPreferArmor = 1
 vim.g.GPGDefaultRecipients = { 'eddy_c@novellpharm.com' }
 
 vim.opt.directory = '/tmp/'
