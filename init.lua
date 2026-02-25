@@ -96,6 +96,15 @@ vim.g.have_nerd_font = true
 vim.cmd [[
   set foldmethod=indent
   set foldlevelstart=99
+
+  " In order to make the CursorLine and CursorColumn work, I moved them to the
+  " bottom in the .vimrc script. ~ Mar 8, 2023
+  "
+  "hi CursorLine   cterm=none ctermbg=darkgray ctermfg=white guibg=darkred guifg=darkgray
+  "hi CursorColumn cterm=NONE ctermbg=none ctermfg=red guibg=NONE guifg=red
+  hi CursorLine   cterm=none ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
+  hi CursorColumn cterm=none ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
+  set cursorline cursorcolumn
 ]]
 
 -- TODO: Move some of below variable definition into their related plugins
