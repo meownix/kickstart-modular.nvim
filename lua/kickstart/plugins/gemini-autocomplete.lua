@@ -4,7 +4,7 @@ return {
     return {
       model = {
         api = require 'gemini-autocomplete.api',
-        model_id = require('gemini-autocomplete.api').MODELS.GEMINI_2_5_PRO,
+        model_id = require('gemini-autocomplete.api').MODELS.GEMINI_2_5_FLASH_LITE,
         temperature = 1,
         response_mime_type = 'text/plain',
         get_system_text = function()
