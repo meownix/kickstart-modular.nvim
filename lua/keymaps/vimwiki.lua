@@ -71,3 +71,15 @@ end
 
 vim.g.vimwiki_folding = 'custom'
 vim.g.vimwiki_create_link = 0
+
+-- Ensure nowrap and textwidth=80 for vimwiki files
+local vimwiki_group = vim.api.nvim_create_augroup('vimwiki_group', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = vimwiki_group,
+  pattern = 'vimwiki',
+  callback = function()
+    vim.opt_local.wrap = false
+    vim.opt_local.textwidth = 80
+  end,
+  desc = 'Disable wrapping and textwidth for vimwiki files',
+})
