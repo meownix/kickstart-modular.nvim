@@ -2,24 +2,24 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    local gemini_icon = '✦'
-    local gemini_disabled_color = '#6c7086'
+    local aider_icon = '✦'
+    local aider_disabled_color = '#6c7086'
 
-    local function gemini_autocomplete_status()
-      local ok = pcall(require, 'gemini-autocomplete')
+    local function aider_autocomplete_status()
+      local ok = pcall(require, 'llm')
       if not ok then
         return ''
       end
 
-      local ok_config, config = pcall(require, 'gemini-autocomplete.config')
+      local ok_config, config = pcall(require, 'llm.config')
       if not ok_config then
-        return gemini_icon
+        return aider_icon
       end
 
-      local model_id = config.get_config().model.model_id
-      local model_label = model_id:gsub('^gemini%-', '')
+      local model_id = config.get().model
+      local model_label = model_id:gsub('^qwen2%.5%-coder%-', ''):gsub('^qwen2%.5%-', '')
 
-      return gemini_icon .. ' ' .. model_label
+      return aider_icon .. ' ' .. model_label
     end
 
     local function active_lualine_mode_bg()
@@ -32,13 +32,13 @@ return {
       return utils.extract_highlight_colors('lualine_a' .. highlight.get_mode_suffix(), 'bg')
     end
 
-    local function gemini_autocomplete_color()
-      local ok, gemini = pcall(require, 'gemini-autocomplete')
-      if ok and gemini.is_enabled() then
-        return { fg = active_lualine_mode_bg() or gemini_disabled_color }
+    local function aider_autocomplete_color()
+      local ok, completion = pcall(require, 'llm.completion')
+      if ok and completion.should_complete() then
+        return { fg = active_lualine_mode_bg() or aider_disabled_color }
       end
 
-      return { fg = gemini_disabled_color }
+      return { fg = aider_disabled_color }
     end
 
     require('lualine').setup {
@@ -79,7 +79,7 @@ return {
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = {
-          { gemini_autocomplete_status, color = gemini_autocomplete_color },
+          { aider_autocomplete_status, color = aider_autocomplete_color },
           'encoding',
           'fileformat',
           'filetype',

@@ -43,7 +43,8 @@ require('lazy').setup({
   require 'kickstart.plugins.vimtex',
   require 'kickstart.plugins.image',
   require 'kickstart.plugins.codex',
-  require 'kickstart.plugins.gemini-autocomplete',
+  -- require 'kickstart.plugins.gemini-autocomplete',
+  require 'kickstart.plugins.llm',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
