@@ -10,7 +10,7 @@ return {
       syntax = true, -- enable syntax highlighting, affects performance
       theme = 'dark', -- 'dark' or 'light'
       update_on_change = true,
-      app = 'chromium-app', -- 'webview', 'browser', string or a table of strings
+      app = 'webview', -- 'webview', 'browser', string or a table of strings
       -- explained below
       filetype = { 'markdown', 'vimwiki' }, -- list of filetypes to recognize as markdown
       -- relevant if update_on_change is true

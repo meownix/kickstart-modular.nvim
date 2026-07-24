@@ -119,7 +119,8 @@ vim.g.GPGDefaultRecipients = { 'eddy_c@novellpharm.com' }
 
 vim.opt.directory = '/tmp/'
 
-vim.cmd 'source $HOME/.vim/plugin/matchit/plugin/matchit.vim'
+-- Modern Neovim includes and enables the matchit plugin by default.
+-- vim.cmd 'source $HOME/.vim/plugin/matchit/plugin/matchit.vim'
 
 vim.b.match_ignorecase = 1
 vim.b.match_words = '\\<IF\\>:\\<ELSE\\>:\\<ENDI,\\<SCAN\\>:\\<ENDS,'
