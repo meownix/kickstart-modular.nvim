@@ -51,6 +51,7 @@ local chat_engine_config = {
     endpoint_url = 'http://localhost:11434/v1/chat/completions',
     request_timeout = 120,
     stream = 1,
+    auth_type = 'none',
   },
 }
 
