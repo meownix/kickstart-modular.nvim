@@ -1,3 +1,4 @@
 return {
-  'madox2/vim-ai',
+  'meownix/vim-ai',
+  branch = 'mine',
 }
