@@ -47,9 +47,9 @@ vim.g.vim_ai_chat_markdown = 1
 local chat_engine_config = {
   engine = 'chat',
   options = {
-    model = 'deepseek-chat',
-    endpoint_url = 'https://api.deepseek.com/chat/completions',
-    request_timeout = 20,
+    model = 'qwen2.5-coder:7b',
+    endpoint_url = 'http://localhost:11434/v1/chat/completions',
+    request_timeout = 120,
     stream = 1,
   },
 }
